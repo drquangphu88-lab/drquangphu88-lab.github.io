@@ -25,12 +25,6 @@
         html {
             scroll-behavior: smooth;
         }
-        .hero-bg {
-            /* Đã thay bằng ảnh nền mới chuyên nghiệp hơn */
-            background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-        }
         .card-hover {
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
@@ -44,6 +38,10 @@
         }
         .modal-content {
             transition: transform 0.3s ease;
+        }
+        /* Kiểu cho Slideshow */
+        .hero-slide {
+            transition: opacity 1s ease-in-out;
         }
     </style>
 </head>
@@ -77,15 +75,21 @@
     </header>
 
     <main>
-        <!-- Phần Hero -->
-        <section class="hero-bg text-white">
-            <div class="bg-black/50 flex items-center py-24 md:py-32">
-                <div class="container mx-auto px-6 text-center">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Làn Da Khỏe Đẹp Từ Nền Tảng Y Khoa</h1>
-                    <p class="text-lg md:text-xl max-w-3xl mx-auto">
-                        Chia sẻ kiến thức dược mỹ phẩm và chăm sóc da một cách khoa học, an toàn và hiệu quả.
-                    </p>
-                </div>
+        <!-- Phần Hero với Slideshow nền -->
+        <section class="relative text-white min-h-[70vh] flex items-center">
+            <div id="hero-slideshow" class="absolute inset-0 w-full h-full overflow-hidden">
+                <img src="http://googleusercontent.com/file_content/1" alt="Ảnh nền 1" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-100">
+                <img src="http://googleusercontent.com/file_content/2" alt="Ảnh nền 2" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-0">
+                <img src="http://googleusercontent.com/file_content/3" alt="Ảnh nền 3" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-0">
+            </div>
+            <div class="bg-black/50 absolute inset-0"></div>
+            <div class="relative container mx-auto px-6 text-center py-12">
+                <!-- Ảnh đại diện đã được cập nhật -->
+                <img src="http://googleusercontent.com/file_content/1" alt="Ảnh chân dung Ds Quang Phú" class="w-36 h-36 rounded-full mx-auto mb-6 shadow-lg object-cover border-4 border-white/50">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Làn Da Khỏe Đẹp Từ Nền Tảng Y Khoa</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto">
+                    Chia sẻ kiến thức dược mỹ phẩm và chăm sóc da một cách khoa học, an toàn và hiệu quả.
+                </p>
             </div>
         </section>
 
@@ -95,7 +99,13 @@
                 <div class="max-w-4xl mx-auto text-center">
                     <h2 class="text-3xl font-bold text-gray-800 mb-4">Chào bạn, tôi là Ds Quang Phú</h2>
                     <p class="text-teal-600 font-semibold text-lg mb-2">Cử Nhân Dược | Y Sỹ Đa Khoa</p>
-                    <p class="text-gray-500 font-medium mb-6">Hiện Công Tác Tại Bệnh Viện Xuyên Mộc</p>
+                    
+                    <div class="text-gray-600 mb-6 space-y-1">
+                        <p><i class="fas fa-briefcase-medical mr-2 text-teal-500"></i>Đã công tác tại Bệnh Viện Quân Y 7B (2021-2023)</p>
+                        <p><i class="fas fa-hospital mr-2 text-teal-500"></i>Hiện công tác tại Bệnh Viện Huyện Xuyên Mộc</p>
+                        <p><i class="fas fa-spa mr-2 text-teal-500"></i>Cố Vấn Chuyên Môn Tại Xanh Spa</p>
+                    </div>
+
                     <p class="text-gray-600 leading-relaxed">
                         Với nền tảng kiến thức vững chắc từ ngành y dược và kinh nghiệm thực tế, tôi luôn không ngừng học hỏi và cập nhật các kiến thức y khoa liên tục tại Bệnh viện Đại học Y Dược TP.HCM - Trường Đại học Y khoa Phạm Ngọc Thạch - Bệnh viện Da Liễu TP.HCM. Tôi đã hoàn thành các khóa đào tạo chuyên sâu về "Trẻ hoá và tạo hình cơ thể bằng chất làm đầy", "Xu hướng kiến tạo làn da từ cấp độ tế bào", "Ứng dụng giải pháp sinh học cá nhân hoá trong điều trị" và các chứng nhận khác. Sứ mệnh của tôi là kết hợp giữa dược lâm sàng và thẩm mỹ nội khoa để giúp mọi người tìm ra giải pháp chăm sóc da phù hợp nhất, dựa trên những bằng chứng khoa học đáng tin cậy.
                     </p>
@@ -112,7 +122,7 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Bài viết 1 -->
+                    <!-- Các bài viết kiến thức -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
                         <img src="https://placehold.co/600x400/80CBC4/FFFFFF?text=Kem+Chống+Nắng" alt="Bài viết về kem chống nắng" class="w-full h-48 object-cover">
                         <div class="p-6">
@@ -122,8 +132,6 @@
                             <a href="#" class="knowledge-link font-semibold text-teal-700 hover:text-teal-800" data-topic="sunscreen">Đọc thêm &rarr;</a>
                         </div>
                     </div>
-                    
-                    <!-- Bài viết 2 -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
                         <img src="https://placehold.co/600x400/B2DFDB/FFFFFF?text=Retinoids" alt="Bài viết về Retinoids" class="w-full h-48 object-cover">
                         <div class="p-6">
@@ -133,8 +141,6 @@
                             <a href="#" class="knowledge-link font-semibold text-teal-700 hover:text-teal-800" data-topic="retinoids">Đọc thêm &rarr;</a>
                         </div>
                     </div>
-
-                    <!-- Bài viết 3 -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
                         <img src="https://placehold.co/600x400/A5D6A7/FFFFFF?text=Làm+Sạch+Da" alt="Bài viết về làm sạch da" class="w-full h-48 object-cover">
                         <div class="p-6">
@@ -144,8 +150,6 @@
                             <a href="#" class="knowledge-link font-semibold text-teal-700 hover:text-teal-800" data-topic="cleansing">Đọc thêm &rarr;</a>
                         </div>
                     </div>
-                    
-                    <!-- Bài viết 4: Filler -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
                         <img src="https://placehold.co/600x400/CE93D8/FFFFFF?text=Filler" alt="Bài viết về Filler" class="w-full h-48 object-cover">
                         <div class="p-6">
@@ -155,8 +159,6 @@
                             <a href="#" class="knowledge-link font-semibold text-teal-700 hover:text-teal-800" data-topic="filler">Đọc thêm &rarr;</a>
                         </div>
                     </div>
-
-                    <!-- Bài viết 5: Mesotherapy -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
                         <img src="https://placehold.co/600x400/F48FB1/FFFFFF?text=Mesotherapy" alt="Bài viết về Mesotherapy" class="w-full h-48 object-cover">
                         <div class="p-6">
@@ -166,8 +168,6 @@
                             <a href="#" class="knowledge-link font-semibold text-teal-700 hover:text-teal-800" data-topic="meso">Đọc thêm &rarr;</a>
                         </div>
                     </div>
-                    
-                    <!-- Bài viết 6: PRP -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
                         <img src="https://placehold.co/600x400/FFCC80/FFFFFF?text=PRP" alt="Bài viết về PRP" class="w-full h-48 object-cover">
                         <div class="p-6">
@@ -177,8 +177,6 @@
                             <a href="#" class="knowledge-link font-semibold text-teal-700 hover:text-teal-800" data-topic="prp">Đọc thêm &rarr;</a>
                         </div>
                     </div>
-                    
-                    <!-- Bài viết 7: Meso Tan Mỡ -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
                         <img src="https://placehold.co/600x400/EF9A9A/FFFFFF?text=Tan+Mỡ" alt="Bài viết về Meso Tan Mỡ" class="w-full h-48 object-cover">
                         <div class="p-6">
@@ -188,8 +186,6 @@
                             <a href="#" class="knowledge-link font-semibold text-teal-700 hover:text-teal-800" data-topic="meso-fat">Đọc thêm &rarr;</a>
                         </div>
                     </div>
-
-                    <!-- Bài viết 8: Botox -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
                         <img src="https://placehold.co/600x400/B39DDB/FFFFFF?text=Botox" alt="Bài viết về Botox" class="w-full h-48 object-cover">
                         <div class="p-6">
@@ -199,8 +195,6 @@
                             <a href="#" class="knowledge-link font-semibold text-teal-700 hover:text-teal-800" data-topic="botox">Đọc thêm &rarr;</a>
                         </div>
                     </div>
-
-                    <!-- Bài viết 9: Laser Toning -->
                     <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
                         <img src="https://placehold.co/600x400/90CAF9/FFFFFF?text=Laser+Toning" alt="Bài viết về Laser Toning" class="w-full h-48 object-cover">
                         <div class="p-6">
@@ -274,6 +268,17 @@
                 mobileMenu.classList.add('hidden');
             });
         }
+
+        // Xử lý Slideshow
+        const slides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
+        setInterval(() => {
+            slides[currentSlide].classList.remove('opacity-100');
+            slides[currentSlide].classList.add('opacity-0');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.remove('opacity-0');
+            slides[currentSlide].classList.add('opacity-100');
+        }, 5000); // Chuyển slide mỗi 5 giây
 
         // Xử lý Modal Kiến thức
         const knowledgeModal = document.getElementById('knowledge-modal');
