@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Y Khoa - Ds Quang Phú</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Áp dụng font và các kiểu tùy chỉnh */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Màu nền xám nhạt */
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            /* Đã thay bằng ảnh nền mới chuyên nghiệp hơn */
+            background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .card-hover {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        /* Kiểu cho Modal */
+        .modal-overlay {
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header và Menu -->
+    <header class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Đã thay thế bằng Logo Y Khoa mới, thẩm mỹ hơn -->
+            <a href="#" class="flex items-center space-x-2 group">
+                <svg class="h-7 w-7 text-teal-600 group-hover:text-teal-700 transition-colors duration-300" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 6V18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15.3638 8.63604C14.6321 9.36771 13.6321 9.79289 12.5 9.79289C10.7071 9.79289 9.25 8.33579 9.25 6.54289C9.25 4.75 10.7071 3.29289 12.5 3.29289C14.2929 3.29289 15.75 4.75 15.75 6.54289C15.75 7.39356 15.4215 8.17513 14.864 8.7326" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8.63623 15.364C9.36789 14.6323 10.3679 14.2071 11.5 14.2071C13.2929 14.2071 14.75 15.6642 14.75 17.4571C14.75 19.25 13.2929 20.7071 11.5 20.7071C9.70711 20.7071 8.25 19.25 8.25 17.4571C8.25 16.6064 8.57853 15.8249 9.13604 15.2674" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="text-2xl font-bold text-teal-700">Y Khoa</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-600 hover:text-teal-600 transition duration-300">Về tôi</a>
+                <a href="#knowledge" class="text-gray-600 hover:text-teal-600 transition duration-300">Kiến thức</a>
+                <a href="#contact" class="text-gray-600 hover:text-teal-600 transition duration-300">Liên hệ</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 text-gray-600 hover:text-teal-600">Về tôi</a>
+            <a href="#knowledge" class="block py-2 text-gray-600 hover:text-teal-600">Kiến thức</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-teal-600">Liên hệ</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Phần Hero -->
+        <section class="hero-bg text-white">
+            <div class="bg-black/50 flex items-center py-24 md:py-32">
+                <div class="container mx-auto px-6 text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Làn Da Khỏe Đẹp Từ Nền Tảng Y Khoa</h1>
+                    <p class="text-lg md:text-xl max-w-3xl mx-auto">
+                        Chia sẻ kiến thức dược mỹ phẩm và chăm sóc da một cách khoa học, an toàn và hiệu quả.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Giới thiệu về tôi -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Chào bạn, tôi là Ds Quang Phú</h2>
+                    <p class="text-teal-600 font-semibold text-lg mb-2">Cử Nhân Dược | Y Sỹ Đa Khoa</p>
+                    <p class="text-gray-500 font-medium mb-6">Làm Việc Tại Bệnh Viện Xuyên Mộc</p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Với nền tảng kiến thức vững chắc từ ngành y dược và kinh nghiệm thực tế, tôi đã dành nhiều năm nghiên cứu sâu về thành phần, cơ chế hoạt động của các sản phẩm chăm sóc da. Sứ mệnh của tôi là giúp mọi người hiểu đúng về làn da của mình và tìm ra giải pháp chăm sóc phù hợp nhất dựa trên những bằng chứng khoa học đáng tin cậy. Trang web này là nơi tôi chia sẻ những kiến thức và kinh nghiệm đó, với hy vọng có thể đồng hành cùng bạn trên hành trình chinh phục làn da khỏe đẹp.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Chia sẻ kiến thức -->
+        <section id="knowledge" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800">Góc Kiến Thức Chuyên Sâu</h2>
+                    <p class="text-gray-600 mt-2">Cập nhật những bài viết mới nhất về chăm sóc da từ góc nhìn y khoa.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Bài viết 1 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                        <img src="https://placehold.co/600x400/80CBC4/FFFFFF?text=Kem+Chống+Nắng" alt="Bài viết về kem chống nắng" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm text-teal-600 font-semibold">Chăm sóc cơ bản</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-3">Giải mã kem chống nắng: Mọi điều bạn cần biết</h3>
+                            <p class="text-gray-600 mb-4">Hiểu đúng về chỉ số SPF, PA, các loại màng lọc và cách thoa lại kem chống nắng hiệu quả.</p>
+                            <a href="#" class="knowledge-link font-semibold text-teal-700 hover:text-teal-800" data-topic="sunscreen">Đọc thêm &rarr;</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Bài viết 2 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                        <img src="https://placehold.co/600x400/B2DFDB/FFFFFF?text=Retinoids" alt="Bài viết về Retinoids" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm text-teal-600 font-semibold">Hoạt chất vàng</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-3">Sự thật về Retinoids: "Tiêu chuẩn vàng" chống lão hoá</h3>
+                            <p class="text-gray-600 mb-4">Phân biệt các loại Retinoids, cách bắt đầu sử dụng để giảm kích ứng và tối ưu hiệu quả.</p>
+                            <a href="#" class="knowledge-link font-semibold text-teal-700 hover:text-teal-800" data-topic="retinoids">Đọc thêm &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Bài viết 3 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                        <img src="https://placehold.co/600x400/A5D6A7/FFFFFF?text=Làm+Sạch+Da" alt="Bài viết về làm sạch da" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <span class="text-sm text-teal-600 font-semibold">Nền tảng</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-3">Làm sạch kép: Khi nào thực sự cần thiết?</h3>
+                            <p class="text-gray-600 mb-4">Phân tích phương pháp làm sạch kép (double cleansing) và lựa chọn sản phẩm phù hợp cho từng loại da.</p>
+                            <a href="#" class="knowledge-link font-semibold text-teal-700 hover:text-teal-800" data-topic="cleansing">Đọc thêm &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Liên hệ -->
+        <section id="contact" class="py-20 bg-teal-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-2xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Kết Nối Với Tôi</h2>
+                    <p class="text-gray-600 mb-8">Nếu bạn có bất kỳ câu hỏi nào hoặc cần tư vấn, đừng ngần ngại để lại lời nhắn hoặc liên hệ trực tiếp.</p>
+                    
+                    <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 mb-10">
+                        <a href="tel:0123456789" class="text-lg text-gray-700 hover:text-teal-600 transition duration-300">
+                            <i class="fas fa-phone-alt mr-2"></i>0123 456 789
+                        </a>
+                        <a href="mailto:drquangphu.88@gmail.com" class="text-lg text-gray-700 hover:text-teal-600 transition duration-300">
+                            <i class="fas fa-envelope mr-2"></i>drquangphu.88@gmail.com
+                        </a>
+                    </div>
+
+                    <form action="#" method="POST" class="text-left">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Họ và tên</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Số điện thoại</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Lời nhắn</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-teal-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-teal-700 transition duration-300">
+                                Gửi Tin Nhắn
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chân trang -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://www.facebook.com/Drquangphu" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-facebook-f fa-lg"></i></a>
+                <a href="https://www.instagram.com/drquangphu" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="https://www.tiktok.com/@drquangphu" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-tiktok fa-lg"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-youtube fa-lg"></i></a>
+            </div>
+            <p class="text-gray-400">
+                &copy; <span id="year"></span> Y Khoa. Mọi quyền được bảo lưu.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Modal Kiến thức -->
+    <div id="knowledge-modal" class="fixed inset-0 bg-black bg-opacity-50 modal-overlay hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto modal-content transform scale-95">
+            <div class="sticky top-0 bg-white border-b p-4 flex justify-between items-center">
+                <h3 id="modal-title" class="text-2xl font-bold text-gray-800"></h3>
+                <button id="modal-close" class="text-gray-500 hover:text-gray-800">&times;</button>
+            </div>
+            <div id="modal-body" class="p-6 text-gray-600 leading-relaxed">
+                <!-- Nội dung chi tiết sẽ được chèn vào đây -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tự động cập nhật năm ở chân trang
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Xử lý menu trên di động
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (let link of mobileMenuLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+
+        // Xử lý Modal Kiến thức
+        const knowledgeModal = document.getElementById('knowledge-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        const modalClose = document.getElementById('modal-close');
+        const knowledgeLinks = document.querySelectorAll('.knowledge-link');
+
+        const knowledgeContent = {
+            sunscreen: {
+                title: 'Chuyên Sâu Về Kem Chống Nắng',
+                content: `
+                    <h4 class="font-bold text-lg text-gray-800 mb-2">1. Hiểu đúng về các chỉ số</h4>
+                    <ul class="list-disc list-inside mb-4 space-y-1">
+                        <li><strong>SPF (Sun Protection Factor):</strong> Đo lường khả năng chống tia UVB (gây cháy nắng, ung thư da). SPF 30 lọc được khoảng 97% tia UVB, SPF 50 lọc được khoảng 98%.</li>
+                        <li><strong>PA (Protection Grade of UVA):</strong> Đo lường khả năng chống tia UVA (gây lão hóa, nếp nhăn, sạm da), biểu thị bằng dấu cộng (+). PA++++ là mức bảo vệ cao nhất.</li>
+                    </ul>
+                    <h4 class="font-bold text-lg text-gray-800 mb-2">2. Các loại màng lọc (Filters)</h4>
+                    <ul class="list-disc list-inside mb-4 space-y-1">
+                        <li><strong>Vật lý (Mineral):</strong> Chứa Zinc Oxide, Titanium Dioxide. Hoạt động như một tấm gương phản chiếu tia UV. Ưu điểm: lành tính, bền vững. Nhược điểm: có thể để lại vệt trắng, gây bí da.</li>
+                        <li><strong>Hóa học (Chemical):</strong> Chứa Avobenzone, Oxybenzone, Octinoxate... Hấp thụ tia UV và chuyển hóa thành nhiệt. Ưu điểm: kết cấu mỏng nhẹ, không vệt trắng. Nhược điểm: có thể gây kích ứng cho da nhạy cảm.</li>
+                        <li><strong>Lai (Hybrid):</strong> Kết hợp cả hai loại trên để tối ưu ưu điểm và khắc phục nhược điểm.</li>
+                    </ul>
+                    <h4 class="font-bold text-lg text-gray-800 mb-2">3. Cách sử dụng hiệu quả</h4>
+                    <p class="mb-2"><strong>Lượng dùng:</strong> Quy tắc "2 ngón tay" cho mặt và cổ là lượng đủ để đạt chỉ số SPF ghi trên bao bì. Lượng dùng tiêu chuẩn là 2mg/cm² da.</p>
+                    <p><strong>Thoa lại:</strong> Cần thoa lại sau mỗi 2-3 giờ, hoặc ngay sau khi bơi lội, đổ mồ hôi nhiều. Tia UV có thể phá vỡ các màng lọc, làm giảm hiệu quả bảo vệ theo thời gian.</p>
+                `
+            },
+            retinoids: {
+                title: 'Sử Dụng Retinoids Đúng Cách',
+                content: `
+                    <p class="mb-4">Retinoids là "tiêu chuẩn vàng" trong việc điều trị mụn và chống lão hóa nhờ khả năng thúc đẩy tái tạo tế bào và tăng sinh collagen. Tuy nhiên, việc sử dụng sai cách có thể dẫn đến kích ứng.</p>
+                    <h4 class="font-bold text-lg text-gray-800 mb-2">1. Phân loại các Retinoids phổ biến</h4>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr>
+                                    <th class="border p-2">Loại</th>
+                                    <th class="border p-2">Đặc điểm</th>
+                                    <th class="border p-2">Đối tượng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border p-2 font-semibold">Retinol</td>
+                                    <td class="border p-2">Không kê đơn, cần chuyển hóa qua 2 bước để thành Tretinoin. Dịu nhẹ hơn.</td>
+                                    <td class="border p-2">Người mới bắt đầu, chống lão hóa.</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2 font-semibold">Tretinoin</td>
+                                    <td class="border p-2">Kê đơn, hoạt chất mạnh nhất, không cần chuyển hóa.</td>
+                                    <td class="border p-2">Da mụn, lão hóa nặng.</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2 font-semibold">Adapalene</td>
+                                    <td class="border p-2">Thế hệ 3, tác động chọn lọc hơn, ít kích ứng hơn Tretinoin.</td>
+                                    <td class="border p-2">Chủ yếu trị mụn.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h4 class="font-bold text-lg text-gray-800 mb-2">2. Nguyên tắc sử dụng cho người mới</h4>
+                     <ul class="list-disc list-inside mb-4 space-y-1">
+                        <li><strong>Bắt đầu từ nồng độ thấp:</strong> Bắt đầu với Retinol 0.25% - 0.5%.</li>
+                        <li><strong>Tần suất thấp:</strong> Dùng 1-2 lần/tuần, sau đó tăng dần khi da đã quen.</li>
+                        <li><strong>Phương pháp "Sandwich":</strong> Thoa theo thứ tự: Dưỡng ẩm → Retinoid → Dưỡng ẩm. Cách này giúp giảm kích ứng đáng kể.</li>
+                        <li><strong>Bắt buộc dùng kem chống nắng:</strong> Retinoids làm da nhạy cảm hơn với ánh nắng. Luôn dùng kem chống nắng phổ rộng vào ban ngày.</li>
+                    </ul>
+                `
+            },
+            cleansing: {
+                title: 'Phân Tích Về Làm Sạch Kép',
+                content: `
+                    <p class="mb-4">Làm sạch kép (Double Cleansing) là phương pháp sử dụng hai loại sữa rửa mặt khác nhau để loại bỏ hoàn toàn bụi bẩn, dầu thừa và lớp trang điểm.</p>
+                    <h4 class="font-bold text-lg text-gray-800 mb-2">Bước 1: Tẩy trang gốc dầu (Oil-based Cleanser)</h4>
+                    <p class="mb-2"><strong>Sản phẩm:</strong> Dầu tẩy trang, sáp tẩy trang.</p>
+                    <p class="mb-4"><strong>Cơ chế:</strong> Theo nguyên tắc "dầu hòa tan dầu", sản phẩm gốc dầu sẽ hòa tan và loại bỏ hiệu quả lớp trang điểm, kem chống nắng, bã nhờn mà sữa rửa mặt gốc nước khó làm sạch hết.</p>
+                    
+                    <h4 class="font-bold text-lg text-gray-800 mb-2">Bước 2: Sữa rửa mặt gốc nước (Water-based Cleanser)</h4>
+                    <p class="mb-2"><strong>Sản phẩm:</strong> Sữa rửa mặt dạng gel, bọt, kem.</p>
+                    <p class="mb-4"><strong>Cơ chế:</strong> Rửa sạch nốt những cặn bẩn còn lại như mồ hôi, bụi mịn và lớp dầu tẩy trang ở bước 1, giúp lỗ chân lông thông thoáng hoàn toàn.</p>
+
+                    <h4 class="font-bold text-lg text-gray-800 mb-2">Khi nào nên làm sạch kép?</h4>
+                    <p>Phương pháp này đặc biệt cần thiết vào cuối ngày nếu bạn:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Có trang điểm (kể cả chỉ dùng kem nền, cushion).</li>
+                        <li>Sử dụng kem chống nắng (đặc biệt là loại chống nước).</li>
+                        <li>Sống trong môi trường ô nhiễm, nhiều khói bụi.</li>
+                        <li>Có làn da dầu, dễ bít tắc lỗ chân lông.</li>
+                    </ul>
+                `
+            }
+        };
+
+        knowledgeLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const topic = e.target.getAttribute('data-topic');
+                
+                if (knowledgeContent[topic]) {
+                    modalTitle.textContent = knowledgeContent[topic].title;
+                    modalBody.innerHTML = knowledgeContent[topic].content;
+                    knowledgeModal.classList.remove('hidden');
+                    knowledgeModal.querySelector('.modal-content').classList.remove('scale-95');
+                    knowledgeModal.querySelector('.modal-content').classList.add('scale-100');
+                }
+            });
+        });
+
+        const closeModal = () => {
+            knowledgeModal.querySelector('.modal-content').classList.add('scale-95');
+            knowledgeModal.querySelector('.modal-content').classList.remove('scale-100');
+            setTimeout(() => {
+                 knowledgeModal.classList.add('hidden');
+            }, 300);
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        knowledgeModal.addEventListener('click', (e) => {
+            if (e.target === knowledgeModal) {
+                closeModal();
+            }
+        });
+    </script>
+
+</body>
+</html>
