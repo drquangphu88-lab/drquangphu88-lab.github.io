@@ -61,6 +61,7 @@
             <div class="hidden md:flex space-x-8">
                 <a href="#about" class="text-gray-600 hover:text-teal-600 transition duration-300">Về tôi</a>
                 <a href="#knowledge" class="text-gray-600 hover:text-teal-600 transition duration-300">Kiến thức</a>
+                <a href="#documents" class="text-gray-600 hover:text-teal-600 transition duration-300">Tài liệu</a>
                 <a href="#contact" class="text-gray-600 hover:text-teal-600 transition duration-300">Liên hệ</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden text-gray-700">
@@ -70,6 +71,7 @@
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
             <a href="#about" class="block py-2 text-gray-600 hover:text-teal-600">Về tôi</a>
             <a href="#knowledge" class="block py-2 text-gray-600 hover:text-teal-600">Kiến thức</a>
+            <a href="#documents" class="block py-2 text-gray-600 hover:text-teal-600">Tài liệu</a>
             <a href="#contact" class="block py-2 text-gray-600 hover:text-teal-600">Liên hệ</a>
         </div>
     </header>
@@ -78,14 +80,12 @@
         <!-- Phần Hero với Slideshow nền -->
         <section class="relative text-white min-h-[70vh] flex items-center">
             <div id="hero-slideshow" class="absolute inset-0 w-full h-full overflow-hidden">
-                <!-- Đã sửa đường dẫn ảnh thành .JPG -->
                 <img src="IMG_0398.JPG" alt="Ảnh nền 1" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-100">
                 <img src="IMG_0399.JPG" alt="Ảnh nền 2" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-0">
                 <img src="IMG_0400.JPG" alt="Ảnh nền 3" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-0">
             </div>
             <div class="bg-black/50 absolute inset-0"></div>
             <div class="relative container mx-auto px-6 text-center py-24">
-                <!-- Ảnh chân dung đã được xóa -->
                 <h1 class="text-4xl md:text-6xl font-bold mb-4">Làn Da Khỏe Đẹp Từ Nền Tảng Y Khoa</h1>
                 <p class="text-lg md:text-xl max-w-3xl mx-auto">
                     Chia sẻ kiến thức dược mỹ phẩm và chăm sóc da một cách khoa học, an toàn và hiệu quả.
@@ -203,6 +203,45 @@
                             <p class="text-gray-600 mb-4">Nguyên lý và hiệu quả của laser trong điều trị sắc tố, se khít lỗ chân lông.</p>
                             <a href="#" class="knowledge-link font-semibold text-teal-700 hover:text-teal-800" data-topic="laser">Đọc thêm &rarr;</a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Tài liệu -->
+        <section id="documents" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800">Tài Liệu & Nghiên Cứu</h2>
+                    <p class="text-gray-600 mt-2">Tải về các tài liệu chuyên môn và phác đồ tham khảo.</p>
+                </div>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Tài liệu 1 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm flex flex-col items-center text-center">
+                        <i class="fas fa-file-pdf text-4xl text-red-500 mb-4"></i>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Phác đồ trị mụn</h3>
+                        <p class="text-gray-600 text-sm mb-4">Hướng dẫn chi tiết về cách phối hợp hoạt chất điều trị mụn trứng cá.</p>
+                        <a href="phac-do-tri-mun.pdf" download class="mt-auto bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-teal-700 transition duration-300">
+                            Tải về
+                        </a>
+                    </div>
+                    <!-- Tài liệu 2 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm flex flex-col items-center text-center">
+                        <i class="fas fa-file-pdf text-4xl text-red-500 mb-4"></i>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chăm sóc da sau Peel</h3>
+                        <p class="text-gray-600 text-sm mb-4">Những lưu ý quan trọng và sản phẩm cần thiết sau khi thực hiện peel da.</p>
+                        <a href="cham-soc-sau-peel.pdf" download class="mt-auto bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-teal-700 transition duration-300">
+                            Tải về
+                        </a>
+                    </div>
+                    <!-- Tài liệu 3 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm flex flex-col items-center text-center">
+                        <i class="fas fa-file-pdf text-4xl text-red-500 mb-4"></i>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Tổng quan về Niacinamide</h3>
+                        <p class="text-gray-600 text-sm mb-4">Nghiên cứu khoa học về hiệu quả của Niacinamide trong mỹ phẩm.</p>
+                        <a href="tong-quan-niacinamide.pdf" download class="mt-auto bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-teal-700 transition duration-300">
+                            Tải về
+                        </a>
                     </div>
                 </div>
             </div>
